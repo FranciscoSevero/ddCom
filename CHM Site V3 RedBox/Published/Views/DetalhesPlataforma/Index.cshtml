@@ -1,0 +1,411 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-app="detalhesPlataformaApp" ng-controller="detalhesPlataformaCtrl" ng-init="getRecorder('V11')">
+    <div ng-cloak ng-model="plataforma">
+        <!-- BEGIN PAGE CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN PAGE HEAD -->
+            <div class="page-head">
+                <div class="container">
+                    <!-- BEGIN PAGE TITLE -->
+                    <div class="page-title">
+                        <h1>Detalhes da plataforma<small> Detalhamento da plataforma de dados.</small></h1>
+                    </div>
+                    <!-- END PAGE TITLE -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE HEAD -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+            <div class="container">
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <div class="row margin-top-20">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-dark">
+                                <i class="fa fa-database"></i> <span class="caption-subject bold uppercase"> {{plataforma.plataforma}} </span>          
+                                <small> Plataforma</small>                      
+                                <span class="caption-helper"> </span>
+                            </div>
+                            <div class="actions">
+                                <a title="Editar plataforma" class="btn btn-circle btn-icon-only btn-default">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a title="Deletar plataforma" class="btn btn-circle btn-icon-only btn-default">
+                                    <i ng-click="RemovePlataforma(plataforma);" class="icon-trash"></i>
+                                </a>                                                            
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="portlet-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="page-title">
+                                                    <p style="width:90%" class="well">
+                                                        <span class="caption-subject bold">Gravadores disponíveis </span>
+                                                    </p>
+                                                    <div>
+                                                        <div id="radio-form" class="md-radio-inline">
+                                                            <div class="md-radio">
+                                                                <input type="radio" id="radio1" value="V7.8" ng-model="valueRD" ng-change="getRecorder(valueRD);"
+                                                                       name="radio2" class="md-radiobtn">
+                                                                <label for="radio1">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>
+                                                                    V7.8
+                                                                </label>
+                                                            </div>
+                                                            <div class="md-radio">
+                                                                <input type="radio" id="radio2" value="V11" ng-checked="true" ng-model="valueRD" ng-change="getRecorder(valueRD);"
+                                                                       name="radio2" class="md-radiobtn">
+                                                                <label for="radio2">
+                                                                    <span></span>
+                                                                    <span class="check"></span>
+                                                                    <span class="box"></span>
+                                                                    V11
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <select name="recordersDisp" id="recordersDisp" ng-options="recDisp for recDisp in recordersDisponiveis"
+                                                            ng-model="recordersDisponiveis"
+                                                            class="form-control input-large input-lg select2me" data-placeholder="Selecione..." ng-change="recorderCadastro()">
+                                                        <option></option>
+                                                    </select>        
+                                                    <br />
+                                                    <br />
+                                                    <div>
+                                                        <button ng-click="recorderCadastro()" type="button" class="btn default">Cadastrar <i class="fa fa-plus"></i></button>
+                                                    </div> 
+                                                    <br />                                                                                                                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="portlet-body">
+                                    <form role="form">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="page-title">
+                                                    <p style="width:90%" class="well">
+                                                        <span class="caption-subject bold">Gravadores cadastrados</span>
+                                                    </p>
+                                                    <br />                                                    
+                                                    <br />
+                                                    <select data-ng-options="o for o in recordersCadastrados track by $index" data-ng-model="recordersDisponiveis"
+                                                            class="form-control input-large input-lg select2me" data-placeholder="Visualizar...">
+                                                        <option></option>
+                                                    </select>   
+                                                    <br />
+                                                    <br />
+                                                    <button ng-click="recorderCadastro()" type="button" class="btn default">Deletar <i class="fa fa-times"></i></button>                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div ng-show="form_cad_recorder" class="row margin-top-20">
+                    <div class="portlet light bordered" id="form_wizard_recorder">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-database"></i>Cadastro gravador {{serialrec}} - Etapa <span class="step-title">
+                                    1 de 2
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <form action="#" class="form-horizontal" id="submit_form_recorder" method="POST" novalidate="novalidate">
+                                <div class="form-wizard">
+                                    <div class="form-body">
+                                        <ul class="nav nav-pills nav-justified steps">
+                                            <li>
+                                                <a href="#tab1" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                        1
+                                                    </span>
+                                                    <span class="desc">
+                                                        <i class="fa fa-check"></i> Gravador
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab2" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                        2
+                                                    </span>
+                                                    <span class="desc">
+                                                        <i class="fa fa-check"></i> Confirmação
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div id="bar" class="progress progress-striped" role="progressbar">
+                                            <div class="progress-bar progress-bar-success" style="width: 25%;">
+                                            </div>
+                                        </div>
+                                        <div  class="tab-content">
+                                            <div class="alert alert-danger display-none">
+                                                <button class="close" data-dismiss="alert"></button>
+                                                Corrija as informações em vermelho. Verifique abaixo.
+                                            </div>                                        
+
+                                            <!-- CADASTRO GRAVADOR-->
+                                            <div style="margin-left:230px" class="tab-pane" id="tab1">
+                                                <h3 class="block">Preencha as informações sobre o gravador.</h3>                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Hostname
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="hostname" name="hostname">
+                                                        <span class="help-block">
+                                                            Ex: MEUPC-NB
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Ip 
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="ip" name="ip">
+                                                        <span class="help-block">
+                                                            Ex: 127.0.0.1
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Usuário 
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="usuario" name="usuario">
+                                                        <span class="help-block">
+                                                            Usuário cadastrado.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Senha usuário. 
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="password" class="form-control" id="senha" name="senha">
+                                                        <span class="help-block">
+                                                            Senha cadastrada.
+                                                        </span>
+                                                    </div>
+                                                </div>                                                                                                
+                                               
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Operação 
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="ip" name="operacao">
+                                                        <span class="help-block">
+                                                            Nome/Aliás da operação.
+                                                        </span>
+                                                    </div>
+                                                </div>   
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Versão gravador
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control input-small" disabled ng-model="versaoRecorder" id="versao-gravador-value" name="versao-gravador-value">
+                                                        <span class="help-block">
+                                                            Versão gravador.
+                                                        </span>
+                                                    </div>
+                                                </div>   
+                                                                                 
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Tipo gravador <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <select id="tipo_gravador"
+                                                                name="tipo_gravador" class="form-control input-small select2me" placeholder="Selecione...">
+                                                            <option value=""></option>
+                                                            <option value="TDM">TDM</option>
+                                                            <option value="VOIP">VOIP</option>
+                                                        </select>
+                                                        <span class="help-block">
+                                                            Tipo do gravador.
+                                                        </span>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+                                            <!-- CADASTRO GRAVADORES-->
+
+                                            <!-- CCONFIRMAÇÃO -->
+                                            <div class="tab-pane" id="tab2">
+                                                <h3 class="block">Verifique as informações e clique em Confirmar.</h3>                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Hostname:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="hostname">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Ip:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="ip">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Usuário:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="usuario">
+                                                        </p>
+                                                    </div>
+                                                </div>                                               
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Operação:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="operacao">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Versão gravador:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="versao-gravador-value">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Tipo gravador:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="tipo_gravador">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <a class="btn default button-previous disabled" style="display: none;">
+                                                    <i class="m-icon-swapleft"></i> Voltar
+                                                </a>
+                                                <a class="btn blue button-next">
+                                                    Continuar <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                <a class="btn green button-submit" style="display: none;">
+                                                    Confirmar <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <br />
+
+    @*BEGIN modal Remove plataforma *@
+    <div id="confirm-remove-plataforma" data-backdrop="static" class="modal fade" tabindex="-1" role="basic">
+        <div style="height:225px" ng-model="plataforma" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-ban"></i> <span class="caption-subject bold uppercase">Atenção!</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Deseja realmente excluir a plataforma: <strong> {{plataformaToRemove.plataforma}} </strong>?
+                    </p>
+                    <br />
+                    <p>
+                        Caso exista(m) gravador(es) cadastrado(s), o(s) mesmo(s) também será(ão) excluído(s) e o monitorado será interrompido.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Fechar</button>
+            <button type="button" ng-click="RemovePlataforma(plataforma,'remove');" class="btn btn-danger button-submit">Sim, excluir!</button>
+        </div>
+    </div>
+    @*END modal Remove plataforma *@
+
+    @*BEGIN modal alert cadastro gravador *@
+    <div id="alert-cadastro-gravador" data-backdrop="static" class="modal fade" tabindex="-1" role="basic">
+        <div style="height:225px" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-check-square-o"></i> <span class="caption-subject bold uppercase">Atenção!</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <strong> <span id="alert-cadastro-gravador-pre-message">@*DINAMICO*@ </span></strong> <span id="alert-cadastro-gravador-title-message">@*DINAMICO*@</span>
+                    </p>
+                    <br />
+                    <p>
+                        <span id="alert-cadastro-gravador-title-sub-message"> @*DINAMICO*@</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="location.href = 'Sites';" data-dismiss="modal" class="btn btn-default">OK</button>
+        </div>
+    </div>
+    @*END modal alert cadastro gravador *@
+
+    <!-- Begin modal-dialog loading -->
+    <div class="modal fade" data-backdrop="static" id="loading" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <img src="~/Content/template/assets/global/img/loading-spinner-grey.gif" alt="" class="loading">
+                <span>
+                    &nbsp;&nbsp;Carregando...
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- End modal-dialog loading -->
+
+</div>
+<!-- BEGIN QUICK SIDEBAR -->
+<!-- END QUICK SIDEBAR -->
+<!-- END PAGE CONTENT -->
+
+<script src="~/Scripts/defaults/angular.min.js"></script>
+<script src="~/Scripts/detalhesPlataforma/detalhesPlataformaApp.js"></script>
+
+<script src="~/Content/template/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="~/Scripts/detalhesPlataforma/detalhesPlataforma.js"></script>  

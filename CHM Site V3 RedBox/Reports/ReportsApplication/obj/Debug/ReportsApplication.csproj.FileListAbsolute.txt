@@ -1,0 +1,12 @@
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.dll.config
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.dll
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.pdb
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.csprojResolveAssemblyReference.cache
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.dll
+D:\Projetos Clientes\ddCom\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.pdb
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.dll.config
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.dll
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\bin\ReportsApplication.pdb
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.csprojResolveAssemblyReference.cache
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.dll
+D:\PROJETOS DDCOM LEANDRO RAMOS\ProjetosDotNet\WEBAplication\CHM Site V3 RedBox\Reports\ReportsApplication\obj\Debug\ReportsApplication.pdb

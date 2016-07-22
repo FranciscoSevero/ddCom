@@ -1,0 +1,256 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <!-- BEGIN PAGE CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN PAGE HEAD -->
+        <div class="page-head">
+            <div class="container">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+                    <h1>Plataforma<small> Crie ou edite plataforma de dados.</small></h1>
+                </div>
+                <!-- END PAGE TITLE -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE HEAD -->
+    <!-- BEGIN PAGE CONTENT -->
+    <div class="page-content">
+        <div class="container">
+            <!-- BEGIN PAGE CONTENT INNER -->
+            <div class="row margin-top-20">
+
+                <div class="col-md-12">
+                    <div class="portlet light bordered" id="form_wizard_plataforma">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-database"></i>Cadastrando plataforma - Etapa <span class="step-title">
+                                    1 de 2
+                                </span>
+                            </div>
+                        </div>
+                        <div class="portlet-body form">
+                            <form action="#" class="form-horizontal" id="submit_form_plataforma" method="POST" novalidate="novalidate">
+                                <div class="form-wizard">
+                                    <div class="form-body">
+                                        <ul class="nav nav-pills nav-justified steps">
+                                            <li>
+                                                <a href="#tab1" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                        1
+                                                    </span>
+                                                    <span class="desc">
+                                                        <i class="fa fa-check"></i> Plataforma
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab2" data-toggle="tab" class="step">
+                                                    <span class="number">
+                                                        2
+                                                    </span>
+                                                    <span class="desc">
+                                                        <i class="fa fa-check"></i> Confirmação
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div id="bar" class="progress progress-striped" role="progressbar">
+                                            <div class="progress-bar progress-bar-success" style="width: 25%;">
+                                            </div>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div class="alert alert-danger display-none">
+                                                <button class="close" data-dismiss="alert"></button>
+                                                Corrija as informações em vermelho. Verifique abaixo.
+                                            </div>
+                                            <div class="alert alert-success display-none">
+                                                <button class="close" data-dismiss="alert"></button>
+                                                Your form validation is successful!
+                                            </div>
+
+                                            <!-- CADASTRO PLATAFORMA-->
+                                            <div style="margin-left:230px" class="tab-pane" id="tab1">
+                                                <h3 class="block">Preencha as informações sobre plataforma.</h3>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Nome plataforma <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="nomePlataforma" name="nomePlataforma">
+                                                        <span class="help-block">
+                                                            Identificação ou aliás.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Instância Sql <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="instanciaSql" name="instanciaSql">
+                                                        <span class="help-block">
+                                                            Ex: 127.0.0.1\sqlexpress
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Usuário Sql <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" id="usuarioSql" name="usuarioSql">
+                                                        <span class="help-block">
+                                                            Nome usuário cadastrado no Sql.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Senha Sql <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="password" class="form-control" id="senhaSql" name="senhaSql">
+                                                        <span class="help-block">
+                                                            Senha cadastrada para o usuário digitado.
+                                                        </span>
+                                                    </div>
+                                                </div>                                                
+                                                <br />
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Validar conexão
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <button id="btnValidaConn"
+                                                                type="button" class="btn default">
+                                                            Conectar
+                                                        </button>
+                                                        <span class="help-block success">
+                                                            Tentantiva de conexão com os dados informados.
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <br />
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">
+                                                        Tempo ociosidade <span class="required" aria-required="true">
+                                                            *
+                                                        </span>
+                                                    </label>
+                                                    <div class="col-md-2">
+                                                        <input type="text" class="form-control number" id="ociosidade" name="ociosidade">
+                                                        <span class="help-block">
+                                                            Ramal ocioso em hora(s).
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- CADASTRO GRAVADORES-->
+                                            <!-- CCONFIRMAÇÃO -->
+                                            <div class="tab-pane" id="tab2">
+                                                <h3 class="block">Verifique as informações e clique em Confirmar.</h3>
+                                                <h4 class="form-section">Plataforma</h4>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Nome Plataforma:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="nomePlataforma">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Instância Sql:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="instanciaSql">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Usuário Sql:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="usuarioSql">
+                                                        </p>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3">Tempo ociosidade:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="ociosidade">
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <a href="javascript:;" class="btn default button-previous disabled" style="display: none;">
+                                                    <i class="m-icon-swapleft"></i> Voltar
+                                                </a>
+                                                <a href="javascript:;" class="btn blue button-next">
+                                                    Continuar <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                                <a href="javascript:;" class="btn green button-submit" style="display: none;">
+                                                    Confirmar <i class="m-icon-swapright m-icon-white"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br /><br /><br /><br /><br />
+        </div>
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!-- END QUICK SIDEBAR -->
+    </div>
+    <!-- END PAGE CONTENT -->
+
+    @*BEGIN modal alert cadastro plataforma *@
+    <div id="modal-alert" data-backdrop="static" class="modal fade" tabindex="-1" role="basic">
+        <div style="height:225px" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-check-square-o"></i> <span class="caption-subject bold uppercase">Atenção!</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <strong> <span id="alert-title">@*DINAMICO*@ </span></strong> <span id="title-message">@*DINAMICO*@</span>
+                    </p>
+                    <br />
+                    <p>
+                        <span id="title-sub-message"> @*DINAMICO*@</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" onclick="location.href = 'Sites';" data-dismiss="modal" class="btn btn-default">OK</button>
+        </div>
+    </div>
+    @*END modal alert cadastro plataforma *@
+
+</div>
+
+@*<script src="~/Scripts/defaults/angular.min.js"></script>
+<script src="~/Scripts/plataforma/plataformaApp.js"></script>*@

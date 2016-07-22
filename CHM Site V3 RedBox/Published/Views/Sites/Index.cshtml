@@ -1,0 +1,224 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div ng-app="sitesApp" ng-controller="sitesController">
+    <div ng-init="GetSites()">
+        <!-- BEGIN PAGE CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN PAGE HEAD -->
+            <div class="page-head">
+                <div class="container">
+                    <!-- BEGIN PAGE TITLE -->
+                    <div class="page-title">
+                        <h1>Sites cadastrados <small>detalhamento por plataforma & cadastro.</small></h1>
+                        <br />
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <a>Sites</a>
+                                <i class="fa fa-circle"></i>
+                            </li>
+                            <li>
+                                <a onclick="$('#cad-site').modal('show');">Cadastrar novo</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END PAGE TITLE -->
+                </div>
+
+            </div>
+        </div>
+        <!-- END PAGE HEAD -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+            <div class="container">
+                <!-- BEGIN PAGE CONTENT INNER -->
+                <div class="row margin-top-20">
+
+                    <div ng-cloak ng-model="sites" ng-if="sites.length == 0 || sites == undefined">
+                        <br />
+                        <div class="portlet light bordered">
+                            <div>
+                                <label style="display:table; margin: 0 auto"><strong>Não há site cadastrado.</strong></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-cloak>
+                        <div ng-model="sites" ng-repeat="site in sites">
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <i class="fa fa-building"></i> <span class="caption-subject bold uppercase" ng-bind="site.site"></span>
+                                        <span class="caption-helper">{{site.info_adicional}} </span>
+                                    </div>
+                                    <div class="actions">
+                                        <a title="Deletar site" ng-click="RemoveSite(site);" class="btn btn-circle btn-icon-only btn-default">
+                                            <i class="icon-trash"></i>
+                                        </a>
+                                        <a title="Cadastrar plataforma" ng-click="CadastroPlataforma(site)" class="btn btn-circle btn-icon-only btn-default">
+                                            <i class="icon-wrench"></i>
+                                        </a>
+                                        <a title="Maximizar/minimizar" class="btn btn-circle btn-icon-only btn-default fullscreen">
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="portlet-body">
+                                    <div class="margin-top-10">
+                                        <div class="row mix-grid">
+                                            <div ng-if="site.plataformaList.length == 0">
+                                                <label style="display:table; margin: 0 auto"><strong>Não há plataforma cadastrada.</strong></label>
+                                            </div>
+                                            <div ng-repeat="plat in site.plataformaList">
+                                                <div title="Visualizar detalhes {{plat.plataforma}}" class="col-md-2 col-sm-4 mix mix_all"
+                                                style="cursor: pointer; display: block;  opacity: 1">
+                                                <div ng-click="DetalhesPlataforma(plat);" class="mix-inner">
+                                                <img style="display:table; margin: 0 auto" src="~/Content/img/database-search-icon.png" />
+                                                <label style="display:table; margin: 0 auto"><strong>{{plat.plataforma}}</strong></label>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+            <!-- BEGIN QUICK SIDEBAR -->
+            <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END PAGE CONTENT -->
+
+    </div>
+
+    @*BEGIN modal message *@
+    <div id="modal-alert" data-backdrop="static" class="modal fade" tabindex="-1" role="basic">
+        <div style="height:225px" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-ban"></i> <span class="caption-subject bold uppercase">Atenção!</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        
+                    </p>
+                    <br />
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Fechar</button>
+            <button type="button" ng-click="" class="btn btn-danger button-submit">Sim, excluir!</button>
+        </div>
+    </div>
+    @*END modal message *@
+
+    @*Begin modal Loading*@
+    <div class="modal fade" data-backdrop="static" id="loading" role="basic" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <img src="~/Content/template/assets/global/img/loading-spinner-grey.gif" alt="" class="loading">
+                <span>
+                    &nbsp;&nbsp;Carregando...
+                </span>
+            </div>
+        </div>
+    </div>
+    @*END modal Loading*@
+
+    @*BEGIN modal cadastro Site *@
+    <div id="cad-site" data-backdrop="static" class="modal container fade" tabindex="-1">
+        <div ng-model="site" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-database"></i> <span class="caption-subject bold uppercase">Cadastro Site</span>
+                        <span class="caption-helper">Preencha os dados </span>
+                    </div>
+                </div>
+                <div style="margin-left:25%" class="portlet-body">
+                    <div class="portlet-body form">
+                        <form class="form-horizontal" id="submit_form" novalidate="novalidate">
+                            <div class="form-body">
+                                <!-- CADASTRO SITE-->
+                                <div>
+                                    <h3 class="block">Preencha as informações sobre o site.</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Nome do site <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input ng-model="site.site" type="text" class="form-control" name="nomeSite">
+                                            <span class="help-block">
+                                                Nome desejado.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Informação adicional
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input ng-model="site.info_adicional" type="text" class="form-control" name="infoAdicional">
+                                            <span class="help-block">
+                                                Info adicional.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" ng-click="CadastrarSite(site);" class="btn default button-submit">Cadastrar</button>
+            <button type="button" data-dismiss="modal" class="btn btn-default">Fechar</button>
+        </div>
+    </div>
+    @*END modal cadastro Site *@
+
+    @*BEGIN modal Remove Site *@
+    <div id="confirm-remove-site" data-backdrop="static" class="modal fade" tabindex="-1" role="basic">
+        <div style="height:225px" ng-model="siteToRemove" class=" modal-body">
+            <div class="portlet light">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="fa fa-ban"></i> <span class="caption-subject bold uppercase">Atenção!</span>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Deseja realmente excluir o site: <strong> {{siteToRemove.site}} </strong>?
+                    </p>
+                    <br />
+                    <p>
+                        Caso exista(m) plataforma(s) cadastrada(s), o(s) mesmo(s) também sera(ã)o excluído(s) e o monitorado será interrompido.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Fechar</button>
+            <button type="button" ng-click="RemoveSite(siteToRemove,'remove');" class="btn btn-danger button-submit">Sim, excluir!</button>
+        </div>
+    </div>
+    @*END modal Remove Site *@
+</div>
+
+<script src="~/Content/template/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="~/Scripts/sites/sites.js"></script>
+<script src="~/Scripts/defaults/angular.min.js"></script>
+<script src="~/Scripts/sites/sitesApp.js"></script>

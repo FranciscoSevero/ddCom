@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Projetos\CHM Site V3 RedBox_leandro\Report\Published</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/24/2016 15:25:16</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>05/24/2016 15:25:16</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>05/29/2015 21:27:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/24/2016 15:25:26</publishTime>
+    </File>
+    <File Include="bin/ModelChannelMonitor.dll">
+      <publishTime>07/22/2016 15:50:52</publishTime>
+    </File>
+    <File Include="bin/Report.dll">
+      <publishTime>07/22/2016 15:56:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/21/2016 17:11:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/21/2016 17:11:44</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/21/2016 17:11:46</publishTime>
+    </File>
+    <File Include="Bootstrap/bootstrap-select.css">
+      <publishTime>07/15/2016 14:57:46</publishTime>
+    </File>
+    <File Include="Bootstrap/bootstrap.css">
+      <publishTime>07/15/2016 14:56:38</publishTime>
+    </File>
+    <File Include="Bootstrap/bootstrap.min.css">
+      <publishTime>06/16/2015 16:12:50</publishTime>
+    </File>
+    <File Include="ChannelMonitorDataSet.xsc">
+      <publishTime>07/14/2016 10:42:12</publishTime>
+    </File>
+    <File Include="ChannelMonitorDataSet.xss">
+      <publishTime>07/14/2016 10:42:12</publishTime>
+    </File>
+    <File Include="JS/bootstrap-select.js">
+      <publishTime>07/15/2016 14:55:37</publishTime>
+    </File>
+    <File Include="JS/bootstrap.min.js">
+      <publishTime>07/15/2016 14:56:11</publishTime>
+    </File>
+    <File Include="JS/jquery.js">
+      <publishTime>07/15/2016 14:54:42</publishTime>
+    </File>
+    <File Include="JS/jquery.min.js">
+      <publishTime>07/15/2016 15:06:17</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>07/22/2016 15:54:47</publishTime>
+    </File>
+    <File Include="RelatoriosChannelMonitor.aspx">
+      <publishTime>07/21/2016 09:20:10</publishTime>
+    </File>
+    <File Include="Reports/ReportChannelMonitor.rdlc">
+      <publishTime>07/21/2016 09:23:43</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/22/2016 15:56:47</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

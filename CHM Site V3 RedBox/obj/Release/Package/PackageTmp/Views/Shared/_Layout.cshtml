@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    @*<meta charset="utf-8">*@
+    <meta http-equiv="X-UA-Compatible" charset="utf-8" content="IE=edge">
+    <title>ARM Channel Monitor V3</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    @*<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">*@
+    <link href="~/Content/template/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />    
+    <link href="~/Content/template/assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/template/assets/admin/pages/css/portfolio.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/template/assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/template/assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/template/assets/global/plugins/bootstrap-select/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/template/assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/template/assets/global/plugins/jquery-multi-select/css/multi-select.css" />
+
+    <link href="~/Content/template/assets/global/css/components-rounded.css" id="style_components" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/admin/layout4/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/template/assets/global/css/plugins.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/template/assets/global/plugins/bootstrap-toastr/toastr.min.css" />
+
+    <link href="~/Content/template/assets/jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" />    
+    @*<link href="~/Content/template/assets/global/css/alert-idle.css" rel="stylesheet" />*@
+    <script src="~/Content/Index.js"></script>
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-menu-fixed" class to set the mega menu fixed  -->
+<!-- DOC: Apply "page-header-top-fixed" class to set the top menu fixed  -->
+<body>
+    <!-- BEGIN HEADER -->
+    <div class="page-header">
+        <!-- BEGIN HEADER TOP -->
+        <div class="page-header-top">
+            <div class="container">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+
+                </div>
+                <!-- END LOGO -->
+                <div class="page-top">
+                    <div class="top-menu">
+                        <ul class="nav navbar-nav pull-right">
+                            <li class="dropdown dropdown-user">
+                                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span ng-model="username" class="username username-hide-on-mobile">
+                                        Bem-vindo, ddCom Systems
+                                    </span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default">
+                                    <li>
+                                        <a href="Index">
+                                            <i class="icon-key"></i> Deslogar
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END HEADER TOP -->
+        <!-- BEGIN HEADER MENU -->
+        <div class="page-header-menu">
+            <div class="container">
+
+                <!-- BEGIN MEGA MENU -->
+                <!-- DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background -->
+                <!-- DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover -->
+                <div class="hor-menu ">
+                    <ul class="nav navbar-nav">
+                        <li id="alarme">
+                            <a href="Alarme">Monitoramento</a>
+                        </li>                                                
+                        <li id="sites">
+                            <a href="Sites">Sites</a>
+                        </li>
+                        <li id="reports">
+                            <a href="#" onclick="abreLink()">Relatórios</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MEGA MENU -->
+            </div>
+        </div>
+        <!-- END HEADER MENU -->
+    </div>
+    <!-- END HEADER -->
+    @RenderBody()
+    <br /><br /><br /><br />
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="container">
+            2016 &copy; Desenvolvido por ddCom Systems - Todos os direitos reservados. Acesse nosso website &nbsp;<a class="font-red-haze" href="http://ddcom.com.br/" title="www.ddcom.com.br" target="_blank">ddcom.com.br</a>
+        </div>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+    <!-- END FOOTER -->
+    
+    <script src="~/Content/template/assets/global/plugins/jquery.min.js" type="text/javascript"></script>    
+    <script src="~/Content/template/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>    
+    <script src="~/Content/template/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+    <script src="~/Content/template/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script src="~/Content/template/assets/global/plugins/bootstrap-toastr/toastr.js"></script>
+    <script src="~/Content/template/assets/admin/pages/scripts/ui-toastr.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/jquery-mixitup/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="~/Content/template/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
+    
+    <script src="~/Scripts/defaults/jquery-pulsate.js"></script>        
+    <script src="~/Content/template/assets/global/scripts/metronic.js"></script>    
+    <script src="~/Content/template/assets/admin/layout6/scripts/layout.js"></script>
+    <script src="~/Content/template/assets/admin/pages/scripts/portfolio.js"></script>    
+    <script src="~/Content/template/assets/admin/pages/scripts/form-wizard-plataforma.js"></script>    
+    <script src="~/Content/template/assets/admin/pages/scripts/form-wizard-recorder.js"></script>    
+    <script src="~/Content/template/assets/admin/pages/scripts/components-dropdowns.js"></script>    
+
+    <script src="~/Content/template/assets/global/plugins/jquery-idle-timeout/jquery.idletimeout.js"></script>
+    <script src="~/Content/template/assets/global/plugins/jquery-idle-timeout/jquery.idletimer.js"></script>
+    <script src="~/Content/template/assets/admin/pages/scripts/ui-idletimeout.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            Metronic.init(); // init metronic core components
+            Layout.init(); // init layout
+            Portfolio.init();            
+            FormWizardPlataforma.init();
+            FormWizardRecorder.init();
+            ComponentsDropdowns.init();
+
+            var timeout = '@System.Configuration.ConfigurationManager.AppSettings["Timeout"]';
+
+            if (!isNaN(timeout)) {
+                timeout = (timeout * 60);
+            }
+            else {
+                timeout = 600;//10 minutos
+            }                        
+
+            UIIdleTimeout.init(timeout); // init session idle
+        });
+    </script>
+    <!-- END CORE PLUGINS -->
+
+</body>
+</html>
